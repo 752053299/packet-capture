@@ -1,0 +1,9 @@
+J:\VS_project\抓包学习\抓包学习\bin\Debug\抓包学习.exe.config
+J:\VS_project\抓包学习\抓包学习\bin\Debug\抓包学习.exe
+J:\VS_project\抓包学习\抓包学习\bin\Debug\抓包学习.pdb
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.csprojResolveAssemblyReference.cache
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.MainForm.resources
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.Properties.Resources.resources
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.csproj.GenerateResource.Cache
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.exe
+J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.pdb
