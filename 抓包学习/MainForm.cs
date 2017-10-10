@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
+using System.IO;
 
 namespace 抓包学习
 {
@@ -128,8 +129,7 @@ namespace 抓包学习
 
             addPortName();
             Background.SerialPortDebugEnable = false;
-
-
+           
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace 抓包学习
                     Background.DaemonFrameType = Background.FrameType.Serial;
                     Background.SerialPortDebugEnable = true;
                     portNameBox.Enabled = false;
-                    System.IO.Directory.CreateDirectory(StringFilePath);
+                    
                     DtString = DateTime.Now.Hour.ToString() + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString();
 
                     ThreadPool.QueueUserWorkItem(new WaitCallback(Background.BackgroundReceive), null);
@@ -180,8 +180,49 @@ namespace 抓包学习
         //接收后的帧处理后显示
         void AnalysisProcess_ReceiveDataFrameEvent(AnalysisProcess.SerialFrameAnalysisEventArgs e)
         {
-            string oneFrame = Character.BytesToString(e.SerialPortFrame.OneFrame, 0, e.SerialPortFrame.OneFrame.Length - 1, true);
-            Log(LogMsgType.Commond, oneFrame);
+            SerialPortFrame serialPortFrame = e.SerialPortFrame;
+            string receiveTime = e.ReceiveTime.ToString("HH:mm:ss:fff");
+            string oneFrame = Character.BytesToString(serialPortFrame.OneFrame, 0, serialPortFrame.OneFrame.Length - 1, true);
+            int FrameTypeSel = (int)serialPortFrame.FrameType;
+            int FrameCommun = (int)serialPortFrame.CommunicationWay;
+            string data = Character.BytesToString(serialPortFrame.DataByte, 0, serialPortFrame.DataByte.Length - 1, true);
+
+            switch (FrameTypeSel)
+            {
+                case 0:
+                    Log(LogMsgType.ReceiveTime, "数据帧");
+                    break;
+                case 1:
+                    Log(LogMsgType.ReceiveTime, "命令帧");
+                    break;
+                case 2:
+                    Log(LogMsgType.ReceiveTime, "应答帧");
+                    break;
+                case 3:
+                    Log(LogMsgType.ReceiveTime, "告警帧");
+                    break;
+            }
+
+            switch (FrameCommun)
+            {       
+                case 0:                    
+                    Log(LogMsgType.ReceiveTime, "[透  传]");
+                    break;
+                case 1:                    
+                    Log(LogMsgType.ReceiveTime, "[非透传]");
+                    break;
+                case 2:                   
+                    Log(LogMsgType.ReceiveTime, "  ");
+                    break;
+                case 3:
+                    Log(LogMsgType.ReceiveTime, "  ");
+                    break;
+            }
+            Log(LogMsgType.ReceiveTime, "\t" + receiveTime);
+
+            Log(LogMsgType.ControlCodeNote, "\t" + oneFrame + "\n");
+
+            Log(LogMsgType.ControlCodeNote, serialPortFrame.NodeMac + "\t" + serialPortFrame.ConcentratorMac + "\t" + data + "\n");
         }
 
         /// <summary>
@@ -196,7 +237,7 @@ namespace 抓包学习
                 richTextBox1.SelectedText = string.Empty;
                 richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, FontStyle.Bold);
                 richTextBox1.SelectionColor = LogMsgTypeColor[(int)msgtype];//根据logmegtype的值来显示颜色。
-                richTextBox1.AppendText(msg+"\n");
+                richTextBox1.AppendText(msg);
                 richTextBox1.ScrollToCaret();//将控件内容滚动到当前内容。
             }));
         }
@@ -244,11 +285,33 @@ namespace 抓包学习
 
         #endregion
 
+        //串口下拉刷新端口
         private void portNameBox_DropDown(object sender, EventArgs e)
         {
             addPortName();
         }
 
-       
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(StringFilePath))  //不存在文件夹
+            {
+                Directory.CreateDirectory(StringFilePath);
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+
+                richTextBox1.SaveFile(StringFilePath + "\\" + DtString + ".txt", RichTextBoxStreamType.PlainText);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

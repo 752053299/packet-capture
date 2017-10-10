@@ -71,14 +71,14 @@
             this.toolStripLabel3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1387, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1040, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(69, 28);
+            this.toolStripLabel1.Size = new System.Drawing.Size(56, 28);
             this.toolStripLabel1.Text = "串口连接";
             // 
             // toolStripSeparator1
@@ -92,7 +92,7 @@
             this.portNameBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.portNameBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.portNameBox.Name = "portNameBox";
-            this.portNameBox.Size = new System.Drawing.Size(99, 31);
+            this.portNameBox.Size = new System.Drawing.Size(75, 31);
             this.portNameBox.DropDown += new System.EventHandler(this.portNameBox_DropDown);
             // 
             // StartButton
@@ -137,20 +137,20 @@
             // 
             this.toolStripLabel2.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(69, 28);
+            this.toolStripLabel2.Size = new System.Drawing.Size(56, 28);
             this.toolStripLabel2.Text = "筛选节点";
             // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(69, 31);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(53, 31);
             // 
             // portStateLabel
             // 
             this.portStateLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.portStateLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.portStateLabel.Name = "portStateLabel";
-            this.portStateLabel.Size = new System.Drawing.Size(69, 28);
+            this.portStateLabel.Size = new System.Drawing.Size(56, 28);
             this.portStateLabel.Text = "串口状态";
             // 
             // toolStripLabel3
@@ -164,8 +164,9 @@
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(0, 31);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1387, 535);
+            this.richTextBox1.Size = new System.Drawing.Size(1040, 422);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -179,63 +180,66 @@
             this.LabelResponseNum,
             this.LabelWarningNum,
             this.LabelUnknowNum});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 541);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 428);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1387, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(1040, 25);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
             // LabelReceiveNum
             // 
             this.LabelReceiveNum.Name = "LabelReceiveNum";
-            this.LabelReceiveNum.Size = new System.Drawing.Size(93, 22);
+            this.LabelReceiveNum.Size = new System.Drawing.Size(75, 22);
             this.LabelReceiveNum.Text = "收到的帧：0";
             // 
             // LabelDataNum
             // 
             this.LabelDataNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.LabelDataNum.Name = "LabelDataNum";
-            this.LabelDataNum.Size = new System.Drawing.Size(78, 22);
+            this.LabelDataNum.Size = new System.Drawing.Size(63, 22);
             this.LabelDataNum.Text = "数据帧：0";
             // 
             // LabelOrderNum
             // 
             this.LabelOrderNum.ForeColor = System.Drawing.Color.SteelBlue;
             this.LabelOrderNum.Name = "LabelOrderNum";
-            this.LabelOrderNum.Size = new System.Drawing.Size(78, 22);
+            this.LabelOrderNum.Size = new System.Drawing.Size(63, 22);
             this.LabelOrderNum.Text = "命令帧：0";
             // 
             // LabelResponseNum
             // 
             this.LabelResponseNum.ForeColor = System.Drawing.Color.Fuchsia;
             this.LabelResponseNum.Name = "LabelResponseNum";
-            this.LabelResponseNum.Size = new System.Drawing.Size(78, 22);
+            this.LabelResponseNum.Size = new System.Drawing.Size(63, 22);
             this.LabelResponseNum.Text = "应答帧：0";
             // 
             // LabelWarningNum
             // 
             this.LabelWarningNum.ForeColor = System.Drawing.Color.Red;
             this.LabelWarningNum.Name = "LabelWarningNum";
-            this.LabelWarningNum.Size = new System.Drawing.Size(78, 22);
+            this.LabelWarningNum.Size = new System.Drawing.Size(63, 22);
             this.LabelWarningNum.Text = "告警帧：0";
             // 
             // LabelUnknowNum
             // 
             this.LabelUnknowNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.LabelUnknowNum.Name = "LabelUnknowNum";
-            this.LabelUnknowNum.Size = new System.Drawing.Size(78, 22);
+            this.LabelUnknowNum.Size = new System.Drawing.Size(63, 22);
             this.LabelUnknowNum.Text = "未知帧：0";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1387, 566);
+            this.ClientSize = new System.Drawing.Size(1040, 453);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "抓包学习";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);

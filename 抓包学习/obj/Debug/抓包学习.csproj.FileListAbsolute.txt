@@ -7,3 +7,13 @@ J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.Properties.Resour
 J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.csproj.GenerateResource.Cache
 J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.exe
 J:\VS_project\抓包学习\抓包学习\obj\Debug\抓包学习.pdb
+E:\VS_program\packet-capture\抓包学习\bin\Debug\抓包学习.exe.config
+E:\VS_program\packet-capture\抓包学习\bin\Debug\抓包学习.exe
+E:\VS_program\packet-capture\抓包学习\bin\Debug\抓包学习.pdb
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.csprojResolveAssemblyReference.cache
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.MainForm.resources
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.Properties.Resources.resources
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.csproj.GenerateResource.Cache
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.csproj.CoreCompileInputs.cache
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.exe
+E:\VS_program\packet-capture\抓包学习\obj\Debug\抓包学习.pdb
