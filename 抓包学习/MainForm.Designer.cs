@@ -39,7 +39,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.clearButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.nodeTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.portStateLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -51,6 +51,8 @@
             this.LabelResponseNum = new System.Windows.Forms.ToolStripLabel();
             this.LabelWarningNum = new System.Windows.Forms.ToolStripLabel();
             this.LabelUnknowNum = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.concentratorTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +68,11 @@
             this.toolStripSeparator4,
             this.clearButton,
             this.toolStripLabel2,
-            this.toolStripTextBox1,
+            this.nodeTextBox,
             this.portStateLabel,
-            this.toolStripLabel3});
+            this.toolStripLabel3,
+            this.toolStripLabel4,
+            this.concentratorTextBox});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1040, 31);
@@ -94,6 +98,7 @@
             this.portNameBox.Name = "portNameBox";
             this.portNameBox.Size = new System.Drawing.Size(75, 31);
             this.portNameBox.DropDown += new System.EventHandler(this.portNameBox_DropDown);
+            this.portNameBox.DropDownClosed += new System.EventHandler(this.portNameBox_DropDownClosed);
             // 
             // StartButton
             // 
@@ -132,6 +137,7 @@
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(69, 28);
             this.clearButton.Text = "清空显示";
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // toolStripLabel2
             // 
@@ -140,10 +146,11 @@
             this.toolStripLabel2.Size = new System.Drawing.Size(56, 28);
             this.toolStripLabel2.Text = "筛选节点";
             // 
-            // toolStripTextBox1
+            // nodeTextBox
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(53, 31);
+            this.nodeTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.nodeTextBox.Name = "nodeTextBox";
+            this.nodeTextBox.Size = new System.Drawing.Size(53, 31);
             // 
             // portStateLabel
             // 
@@ -162,11 +169,13 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(0, 31);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1040, 422);
+            this.richTextBox1.Size = new System.Drawing.Size(1040, 469);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -180,7 +189,7 @@
             this.LabelResponseNum,
             this.LabelWarningNum,
             this.LabelUnknowNum});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 428);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 502);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1040, 25);
             this.toolStrip2.TabIndex = 2;
@@ -227,11 +236,23 @@
             this.LabelUnknowNum.Size = new System.Drawing.Size(63, 22);
             this.LabelUnknowNum.Text = "未知帧：0";
             // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(68, 28);
+            this.toolStripLabel4.Text = "筛选集中器";
+            // 
+            // concentratorTextBox
+            // 
+            this.concentratorTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.concentratorTextBox.Name = "concentratorTextBox";
+            this.concentratorTextBox.Size = new System.Drawing.Size(60, 31);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 453);
+            this.ClientSize = new System.Drawing.Size(1040, 527);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.toolStrip1);
@@ -258,7 +279,7 @@
         private System.Windows.Forms.ToolStripButton StartButton;
         private System.Windows.Forms.ToolStripButton clearButton;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox nodeTextBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.IO.Ports.SerialPort serialPort1;
@@ -272,6 +293,8 @@
         private System.Windows.Forms.ToolStripLabel LabelResponseNum;
         private System.Windows.Forms.ToolStripLabel LabelWarningNum;
         private System.Windows.Forms.ToolStripLabel LabelUnknowNum;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripTextBox concentratorTextBox;
 
         public System.IO.Ports.SerialPort SerialPort1 { get { return serialPort1;} }
     }
